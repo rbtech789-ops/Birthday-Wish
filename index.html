@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Birthday Surprise ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- MUSIC -->
+    <audio id="music" loop>
+        <source src="birthday.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- FIREWORK CANVAS -->
+    <canvas id="fireworks"></canvas>
+
+
+    <!-- ==============================
+         SCREEN 1
+    =============================== -->
+
+    <section class="screen active" id="screen1">
+
+        <div class="stars"></div>
+
+        <div class="intro">
+ 
+            <div class="small-text">
+                ✨ SOMEONE SPECIAL HAS A SURPRISE FOR YOU ✨
+            </div>
+     
+            <h1>
+                Hey...
+            </h1>
+
+            <p>
+                Today is not an ordinary day.
+            </p>
+
+            <p>
+                There is something waiting for you. 👀
+            </p>
+
+            <button class="next-btn" onclick="startJourney()">
+                🔐 Unlock The Surprise
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         SCREEN 2 - FIRST SURPRISE
+    =============================== -->
+
+    <section class="screen" id="screen2">
+
+        <div class="content">
+
+            <div class="progress">
+                🎁 SURPRISE 1 / 8
+            </div>
+
+            <h2>
+                🎁 Your First Surprise!
+            </h2>
+
+            <p>
+                Something special is waiting inside this gift...
+            </p>
+
+
+            <!-- =================================
+                 NEW VISIBLE GIFT
+            ================================== -->
+
+            <div class="gift-container" onclick="openGift()">
+
+                <div class="gift" id="gift">
+
+                    <!-- GIFT BOW -->
+                    <div class="gift-bow">
+
+                        <div class="bow-left"></div>
+
+                        <div class="bow-right"></div>
+
+                        <div class="bow-center"></div>
+
+                    </div>
+
+
+                    <!-- GIFT LID -->
+                    <div class="gift-lid">
+
+                        <div class="lid-ribbon"></div>
+
+                    </div>
+
+
+                    <!-- GIFT BODY -->
+                    <div class="gift-box">
+
+                        <div class="ribbon-vertical"></div>
+
+                        <div class="ribbon-horizontal"></div>
+
+                    </div>
+
+                </div>
+
+
+                <p class="click-text">
+                    👆 CLICK THE GIFT
+                </p>
+
+            </div>
+
+
+            <!-- =================================
+                 GIFT MESSAGE
+                 HIDDEN INITIALLY
+            ================================== -->
+
+            <div id="giftMessage" class="gift-message">
+
+                <div class="surprise-icon">
+                    🎉
+                </div>
+
+                <h3>
+                    YOU FOUND IT!
+                </h3>
+
+                <p>
+                    This is only the beginning... ❤️
+                </p>
+
+                <p>
+                    There are many more surprises waiting for you!
+                </p>
+
+                <button
+                    class="next-btn"
+                    onclick="nextScreen(3)">
+
+                    📸 Open The Next Surprise →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         SCREEN 3
+         THREE PHOTOS
+    =============================== -->
+
+    <section class="screen" id="screen3">
+
+        <div class="content">
+
+            <div class="progress">
+                🎁 SURPRISE 2 / 8
+            </div>
+
+            <h2>
+                📸 A Little Memory
+            </h2>
+
+            <p>
+                Every special person deserves special memories.
+            </p>
+
+
+            <!-- =================================
+                 THREE PHOTO GALLERY
+            ================================== -->
+
+            <div class="three-photo-gallery">
+
+
+                <!-- PHOTO 1 -->
+                <div class="memory-card">
+
+                    <div class="memory-photo">
+
+                        <img
+                            src="image1.png"
+                            alt="Special Memory 1">
+
+                    </div>
+
+                    <div class="memory-number">
+                        01
+                    </div>
+
+                    <div class="memory-caption">
+                        ❤️ A beautiful memory
+                    </div>
+
+                </div>
+
+
+                <!-- PHOTO 2 -->
+                <div class="memory-card middle-photo">
+
+                    <div class="memory-photo">
+
+                        <img
+                            src="image2.png"
+                            alt="Special Memory 2">
+
+                    </div>
+
+                    <div class="memory-number">
+                        02
+                    </div>
+
+                    <div class="memory-caption">
+                        ✨ A moment to remember
+                    </div>
+
+                </div>
+
+
+                <!-- PHOTO 3 -->
+                <div class="memory-card">
+
+                    <div class="memory-photo">
+
+                        <img
+                            src="image3.png"
+                            alt="Special Memory 3">
+
+                    </div>
+
+                    <div class="memory-number">
+                        03
+                    </div>
+
+                    <div class="memory-caption">
+                        💛 Forever special
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="photo-description">
+
+                ❤️
+
+                <br>
+
+                These photos hold beautiful memories...
+
+                <br>
+
+                and this is only the beginning of many
+                beautiful moments ahead.
+
+            </div>
+
+
+            <button class="next-btn"
+                    onclick="nextScreen(4)">
+
+                💌 There's More →
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         SCREEN 4
+    =============================== -->
+
+    <section class="screen" id="screen4">
+
+        <div class="content">
+
+            <div class="progress">
+                Surprise 3 / 8
+            </div>
+
+            <h2>
+                💌 A Secret Message
+            </h2>
+
+            <div class="letter">
+
+                <div class="letter-top">
+                    💌
+                </div>
+
+                <p id="secretText">
+                    Click the button below
+                    to reveal the message...
+                </p>
+
+                <button
+                    class="next-btn"
+                    onclick="revealLetter()">
+
+                    🔓 Open Secret Message
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         SCREEN 5
+    =============================== -->
+
+    <section class="screen" id="screen5">
+
+        <div class="content">
+
+            <div class="progress">
+                Surprise 4 / 8
+            </div>
+
+            <h2>
+                ❤️ Things I Wish For You
+            </h2>
+
+            <div class="wish-container">
+
+                <div class="wish">
+                    ❤️
+                    <span>Happiness</span>
+                </div>
+
+                <div class="wish">
+                    🌟
+                    <span>Success</span>
+                </div>
+
+                <div class="wish">
+                    💰
+                    <span>Prosperity</span>
+                </div>
+
+                <div class="wish">
+                    ✈️
+                    <span>Adventures</span>
+                </div>
+
+                <div class="wish">
+                    🥰
+                    <span>Love</span>
+                </div>
+
+                <div class="wish">
+                    🌈
+                    <span>Peace</span>
+                </div>
+
+            </div>
+
+
+            <button class="next-btn"
+                    onclick="nextScreen(6)">
+
+                🎂 Something Sweet →
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         SCREEN 6
+    =============================== -->
+
+    <section class="screen" id="screen6">
+
+        <div class="content">
+
+            <div class="progress">
+                Surprise 5 / 8
+            </div>
+
+            <h2>
+                🎂 Make A Wish
+            </h2>
+
+            <p>
+                Before we continue...
+            </p>
+
+            <p>
+                Close your eyes and make your biggest wish. ✨
+            </p>
+
+
+            <div class="cake">
+
+                <div class="candle c1">
+                    <div class="flame"></div>
+                </div>
+
+                <div class="candle c2">
+                    <div class="flame"></div>
+                </div>
+
+                <div class="candle c3">
+                    <div class="flame"></div>
+                </div>
+
+                <div class="cake-top"></div>
+
+                <div class="cake-body">
+
+                    <div class="icing"></div>
+
+                    <div class="strawberries">
+                        🍓 🍓 🍓
+                    </div>
+
+                </div>
+
+                <div class="plate"></div>
+
+            </div>
+
+
+            <button
+                class="next-btn"
+                onclick="blowCandles()">
+
+                🕯️ Make My Wish
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         SCREEN 7
+    =============================== -->
+
+    <section class="screen" id="screen7">
+
+        <div class="content">
+
+            <div class="progress">
+                Surprise 6 / 8
+            </div>
+
+            <h2>
+                🎆 LOOK UP!
+            </h2>
+
+            <p class="firework-text">
+
+                Your wish has been sent to the universe...
+
+                <br><br>
+
+                Watch what happens next.
+
+            </p>
+
+            <button
+                class="next-btn"
+                onclick="startFireworks()">
+
+                🎆 Launch Fireworks
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         SCREEN 8
+    =============================== -->
+
+    <section class="screen" id="screen8">
+
+        <div class="content final">
+
+            <div class="progress">
+                FINAL SURPRISE ❤️
+            </div>
+
+            <div class="final-stars">
+                ✨ ✨ ✨
+            </div>
+
+            <h1>
+                HAPPY
+                <span>BIRTHDAY</span>
+            </h1>
+
+            <h2>
+                🎂 MEOOW 🎂
+            </h2>
+
+            <p>
+
+                May your life be filled with
+                endless happiness,
+
+                <br>
+
+                unforgettable memories,
+
+                <br>
+
+                amazing adventures,
+
+                <br>
+
+                and people who truly care about you.
+
+            </p>
+
+            <p>
+
+                Never stop dreaming.
+
+                <br>
+
+                Never stop smiling.
+
+                <br>
+
+                Never stop being YOU. ❤️
+
+            </p>
+
+
+            <div class="final-message">
+
+                🌟 YOU ARE SPECIAL 🌟
+
+                <br><br>
+
+                🎁 YOU ARE LOVED 🎁
+
+                <br><br>
+
+                ❤️ YOU DESERVE THE BEST ❤️
+
+            </div>
+
+
+            <button
+                class="next-btn"
+                onclick="finalExplosion()">
+
+                🎉 ONE LAST SURPRISE 🎉
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

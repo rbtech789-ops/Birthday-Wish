@@ -1,0 +1,1554 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: radial-gradient(circle at center, #35104d, #090014);
+    color: white;
+    overflow: hidden;
+}
+
+
+/* =========================
+   SCREENS
+========================= */
+
+.screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    overflow-y: auto;
+}
+
+.screen.active {
+    display: flex;
+
+    animation: screenIn 0.8s ease;
+}
+
+@keyframes screenIn {
+
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+/* =========================
+   STARS
+========================= */
+
+.stars {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-image:
+        radial-gradient(circle at 20px 30px, white 2px, transparent 3px),
+        radial-gradient(circle at 100px 120px, white 1px, transparent 2px),
+        radial-gradient(circle at 200px 80px, white 2px, transparent 3px),
+        radial-gradient(circle at 300px 170px, white 1px, transparent 2px);
+
+    background-size: 300px 200px;
+
+    animation: starsMove 15s linear infinite;
+
+    pointer-events: none;
+}
+
+@keyframes starsMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(200px);
+    }
+
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+    width: min(1000px, 95%);
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.small-text {
+
+    letter-spacing: 5px;
+
+    color: #ffd166;
+
+    margin-bottom: 30px;
+
+    font-size: 14px;
+}
+
+h1 {
+
+    font-size: clamp(70px, 14vw, 150px);
+
+    line-height: 0.85;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff3cac,
+            #ffd166,
+            #00e5ff,
+            #ff3cac
+        );
+
+    background-size: 300%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    animation:
+        gradientMove 5s linear infinite;
+}
+
+h1 span {
+    display: block;
+}
+
+h2 {
+
+    font-size:
+        clamp(35px, 6vw, 65px);
+
+    margin-bottom: 30px;
+
+    color: #ffd166;
+
+    text-shadow:
+        0 0 25px
+        rgba(255, 209, 102, 0.7);
+}
+
+p {
+
+    font-size: 20px;
+
+    line-height: 1.7;
+
+    color: #eeeeee;
+}
+
+@keyframes gradientMove {
+
+    from {
+        background-position: 0%;
+    }
+
+    to {
+        background-position: 300%;
+    }
+
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.next-btn {
+
+    margin-top: 35px;
+
+    padding: 17px 35px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff3cac,
+            #784ba0
+        );
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 25px
+        rgba(255, 60, 172, 0.5);
+
+    transition:
+        all 0.3s ease;
+}
+
+.next-btn:hover {
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 50px
+        rgba(255, 60, 172, 0.9);
+}
+
+.next-btn:active {
+    transform: scale(0.95);
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress {
+
+    display: inline-block;
+
+    padding: 10px 20px;
+
+    border-radius: 50px;
+
+    background:
+        rgba(255, 255, 255, 0.1);
+
+    color: #ffd166;
+
+    margin-bottom: 35px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.15);
+}
+
+
+/* =====================================================
+   FIRST SURPRISE - GIFT
+===================================================== */
+
+.gift-container {
+
+    margin: 45px auto 20px;
+
+    cursor: pointer;
+
+    width: 300px;
+
+    min-height: 280px;
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* =========================
+   GIFT
+========================= */
+
+.gift {
+
+    position: relative;
+
+    width: 230px;
+
+    height: 210px;
+
+    margin: auto;
+
+    animation:
+        giftFloat 2.2s
+        ease-in-out infinite;
+
+    transition:
+        transform 0.8s ease,
+        opacity 0.8s ease;
+
+    filter:
+        drop-shadow(
+            0 20px 30px
+            rgba(255, 23, 111, 0.35)
+        );
+}
+
+
+/* =========================
+   GIFT BODY
+========================= */
+
+.gift-box {
+
+    position: absolute;
+
+    left: 5px;
+
+    bottom: 0;
+
+    width: 220px;
+
+    height: 145px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff176f,
+            #c40052
+        );
+
+    border-radius: 10px;
+
+    border:
+        2px solid
+        rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 15px 45px
+        rgba(255, 23, 111, 0.6);
+
+    z-index: 2;
+}
+
+
+/* =========================
+   GIFT LID
+========================= */
+
+.gift-lid {
+
+    position: absolute;
+
+    top: 28px;
+
+    left: -3px;
+
+    width: 236px;
+
+    height: 48px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4d91,
+            #e0005d
+        );
+
+    border-radius: 9px;
+
+    border:
+        2px solid
+        rgba(255,255,255,0.18);
+
+    z-index: 5;
+
+    box-shadow:
+        0 12px 30px
+        rgba(255, 23, 111, 0.5);
+
+    transform-origin:
+        20px 100%;
+
+    transition:
+        transform 0.8s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* =========================
+   VERTICAL RIBBON
+========================= */
+
+.ribbon-vertical {
+
+    position: absolute;
+
+    left: 95px;
+
+    top: 0;
+
+    width: 30px;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e7ae36,
+            #ffe99a,
+            #d69a25
+        );
+
+    z-index: 4;
+
+    box-shadow:
+        0 0 10px
+        rgba(255,209,102,0.35);
+}
+
+
+/* =========================
+   HORIZONTAL RIBBON
+========================= */
+
+.ribbon-horizontal {
+
+    position: absolute;
+
+    top: 55px;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 30px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e7ae36,
+            #ffe99a,
+            #d69a25
+        );
+
+    z-index: 4;
+}
+
+
+/* =========================
+   LID RIBBON
+========================= */
+
+.lid-ribbon {
+
+    position: absolute;
+
+    left: 101px;
+
+    top: 0;
+
+    width: 30px;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e7ae36,
+            #ffe99a,
+            #d69a25
+        );
+
+    box-shadow:
+        0 0 10px
+        rgba(255,209,102,0.4);
+}
+
+
+/* =========================
+   BOW
+========================= */
+
+.gift-bow {
+
+    position: absolute;
+
+    top: -2px;
+
+    left: 50%;
+
+    width: 100px;
+
+    height: 65px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 10;
+}
+
+.bow-left,
+.bow-right {
+
+    position: absolute;
+
+    top: 10px;
+
+    width: 55px;
+
+    height: 40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd166,
+            #e3a92d
+        );
+
+    border:
+        2px solid
+        #c99120;
+
+    box-shadow:
+        0 5px 15px
+        rgba(255,209,102,0.35);
+}
+
+.bow-left {
+
+    left: 0;
+
+    border-radius:
+        60% 30% 60% 30%;
+
+    transform:
+        rotate(25deg);
+}
+
+.bow-right {
+
+    right: 0;
+
+    border-radius:
+        30% 60% 30% 60%;
+
+    transform:
+        rotate(-25deg);
+}
+
+.bow-center {
+
+    position: absolute;
+
+    left: 41px;
+
+    top: 22px;
+
+    width: 22px;
+
+    height: 22px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #fff1a9,
+            #ffd166,
+            #d69a25
+        );
+
+    border:
+        2px solid
+        #c99120;
+
+    z-index: 5;
+}
+
+
+/* =========================
+   GIFT HOVER
+========================= */
+
+.gift-container:hover .gift {
+
+    transform:
+        translateY(-8px)
+        scale(1.04);
+}
+
+
+/* =========================
+   GIFT OPENING
+========================= */
+
+.gift.opening {
+
+    animation:
+        giftShake 0.55s ease;
+}
+
+.gift.opening .gift-lid {
+
+    transform:
+        translateY(-110px)
+        rotate(-15deg);
+}
+
+.gift.opening .gift-bow {
+
+    transform:
+        translateX(-50%)
+        translateY(-110px)
+        rotate(-15deg);
+
+    transition:
+        transform 0.8s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* =========================
+   FLOATING GIFT
+========================= */
+
+@keyframes giftFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-12px);
+
+    }
+
+}
+
+
+/* =========================
+   GIFT SHAKE
+========================= */
+
+@keyframes giftShake {
+
+    0% {
+        transform: rotate(0);
+    }
+
+    20% {
+        transform: rotate(-6deg);
+    }
+
+    40% {
+        transform: rotate(6deg);
+    }
+
+    60% {
+        transform: rotate(-5deg);
+    }
+
+    80% {
+        transform: rotate(4deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+
+}
+
+
+/* =========================
+   CLICK TEXT
+========================= */
+
+.click-text {
+
+    margin-top: 25px;
+
+    color: #ffd166;
+
+    font-size: 18px;
+
+    animation:
+        clickPulse
+        1s infinite alternate;
+}
+
+@keyframes clickPulse {
+
+    from {
+
+        opacity: 0.5;
+
+        transform:
+            translateY(0);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(-5px);
+
+    }
+
+}
+
+
+/* =========================
+   GIFT MESSAGE
+========================= */
+
+.gift-message {
+
+    display: none;
+
+    margin: 30px auto;
+
+    max-width: 600px;
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.2);
+
+    box-shadow:
+        0 0 50px
+        rgba(255, 60, 172, 0.3);
+
+    animation:
+        surpriseAppear
+        0.8s ease;
+}
+
+.gift-message.show {
+    display: block;
+}
+
+.surprise-icon {
+
+    font-size: 70px;
+
+    animation:
+        surpriseBounce
+        1s infinite alternate;
+}
+
+.gift-message h3 {
+
+    font-size: 40px;
+
+    margin: 15px 0;
+
+    color: #ffd166;
+}
+
+.gift-message p {
+
+    font-size: 18px;
+
+    margin: 10px;
+}
+
+@keyframes surpriseAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(50px)
+            scale(0.7);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+@keyframes surpriseBounce {
+
+    from {
+
+        transform:
+            translateY(0)
+            rotate(-5deg);
+
+    }
+
+    to {
+
+        transform:
+            translateY(-15px)
+            rotate(5deg);
+
+    }
+
+}
+
+
+/* =====================================================
+   THREE PHOTO GALLERY
+===================================================== */
+
+.three-photo-gallery {
+
+    width: 100%;
+
+    max-width: 950px;
+
+    margin: 35px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+    align-items: center;
+}
+
+
+/* =========================
+   MEMORY CARD
+========================= */
+
+.memory-card {
+
+    position: relative;
+
+    height: 360px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.18);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,0.45);
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+.memory-card:hover {
+
+    transform:
+        translateY(-12px)
+        scale(1.02);
+
+    box-shadow:
+        0 25px 70px
+        rgba(255,60,172,0.35);
+}
+
+
+/* Middle photo slightly raised */
+
+.middle-photo {
+
+    transform:
+        translateY(-25px);
+}
+
+.middle-photo:hover {
+
+    transform:
+        translateY(-37px)
+        scale(1.02);
+}
+
+
+/* =========================
+   PHOTO
+========================= */
+
+.memory-photo {
+
+    width: 100%;
+
+    height: 100%;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.memory-photo::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,0.85),
+            rgba(0,0,0,0.05) 65%
+        );
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+.memory-photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.8s ease;
+}
+
+.memory-card:hover
+.memory-photo img {
+
+    transform:
+        scale(1.1);
+}
+
+
+/* =========================
+   PHOTO NUMBER
+========================= */
+
+.memory-number {
+
+    position: absolute;
+
+    top: 15px;
+
+    left: 15px;
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,0,0,0.45);
+
+    backdrop-filter:
+        blur(8px);
+
+    border:
+        1px solid
+        rgba(255,209,102,0.5);
+
+    color: #ffd166;
+
+    font-size: 13px;
+
+    z-index: 5;
+}
+
+
+/* =========================
+   PHOTO CAPTION
+========================= */
+
+.memory-caption {
+
+    position: absolute;
+
+    bottom: 18px;
+
+    left: 18px;
+
+    right: 18px;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    text-align: left;
+
+    z-index: 5;
+}
+
+
+/* =========================
+   PHOTO DESCRIPTION
+========================= */
+
+.photo-description {
+
+    max-width: 650px;
+
+    margin: 25px auto 0;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    color: #eeeeee;
+}
+
+
+/* =====================================================
+   LETTER
+===================================================== */
+
+.letter {
+
+    max-width: 650px;
+
+    margin: auto;
+
+    padding: 50px 30px;
+
+    background: #fff7e6;
+
+    color: #333;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.4);
+}
+
+.letter-top {
+    font-size: 60px;
+}
+
+#secretText {
+
+    color: #333;
+
+    margin: 30px 0;
+
+    min-height: 80px;
+}
+
+
+/* =========================
+   WISHES
+========================= */
+
+.wish-container {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+    max-width: 800px;
+
+    margin: auto;
+}
+
+.wish {
+
+    padding: 30px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 20px;
+
+    font-size: 40px;
+
+    transition:
+        all 0.4s ease;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+}
+
+.wish span {
+
+    display: block;
+
+    margin-top: 10px;
+
+    font-size: 20px;
+}
+
+.wish:hover {
+
+    transform:
+        translateY(-10px)
+        scale(1.05);
+
+    background:
+        rgba(255, 255, 255, 0.15);
+
+    box-shadow:
+        0 10px 30px
+        rgba(255, 60, 172, 0.3);
+}
+
+
+/* =========================
+   CAKE
+========================= */
+
+.cake {
+
+    position: relative;
+
+    width: 300px;
+
+    height: 280px;
+
+    margin: 20px auto;
+}
+
+.cake-body {
+
+    position: absolute;
+
+    bottom: 35px;
+
+    left: 40px;
+
+    width: 220px;
+
+    height: 120px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            #ff76b7,
+            #e91e63
+        );
+
+    box-shadow:
+        0 10px 30px
+        rgba(233, 30, 99, 0.4);
+}
+
+.cake-top {
+
+    position: absolute;
+
+    bottom: 135px;
+
+    left: 40px;
+
+    width: 220px;
+
+    height: 40px;
+
+    border-radius: 50%;
+
+    background: #fff0f7;
+
+    z-index: 2;
+}
+
+.icing {
+
+    height: 30px;
+
+    background: white;
+
+    border-radius: 50%;
+}
+
+.strawberries {
+
+    margin-top: 35px;
+
+    font-size: 25px;
+}
+
+.plate {
+
+    position: absolute;
+
+    bottom: 15px;
+
+    left: 20px;
+
+    width: 260px;
+
+    height: 25px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 5px 15px
+        rgba(255, 255, 255, 0.3);
+}
+
+.candle {
+
+    position: absolute;
+
+    bottom: 160px;
+
+    width: 15px;
+
+    height: 70px;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            white 0 8px,
+            #ff3cac 8px 16px
+        );
+
+    z-index: 5;
+
+    border-radius: 3px;
+}
+
+.c1 {
+    left: 85px;
+}
+
+.c2 {
+    left: 140px;
+}
+
+.c3 {
+    left: 195px;
+}
+
+.flame {
+
+    position: absolute;
+
+    top: -35px;
+
+    left: -5px;
+
+    width: 25px;
+
+    height: 35px;
+
+    background:
+        radial-gradient(
+            circle,
+            white,
+            #ffd166,
+            #ff6b00
+        );
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 25px #ffd166;
+
+    animation:
+        flameMove
+        0.5s infinite alternate;
+}
+
+@keyframes flameMove {
+
+    from {
+
+        transform:
+            scale(1)
+            rotate(-3deg);
+
+    }
+
+    to {
+
+        transform:
+            scale(1.2)
+            rotate(5deg);
+
+    }
+
+}
+
+
+/* =========================
+   FINAL SCREEN
+========================= */
+
+.final {
+
+    animation:
+        finalGlow
+        2s infinite alternate;
+}
+
+.final h2 {
+    margin-top: 40px;
+}
+
+.final-stars {
+
+    font-size: 50px;
+
+    animation:
+        starsPulse
+        1s infinite alternate;
+}
+
+.final-message {
+
+    margin: 35px auto;
+
+    padding: 25px;
+
+    font-size: 25px;
+
+    line-height: 1.8;
+
+    color: #ffd166;
+}
+
+@keyframes starsPulse {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.3);
+    }
+
+}
+
+@keyframes finalGlow {
+
+    from {
+
+        filter:
+            drop-shadow(
+                0 0 5px
+                rgba(255, 60, 172, 0.3)
+            );
+
+    }
+
+    to {
+
+        filter:
+            drop-shadow(
+                0 0 25px
+                rgba(255, 60, 172, 0.8)
+            );
+
+    }
+
+}
+
+
+/* =========================
+   FIREWORK CANVAS
+========================= */
+
+#fireworks {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    pointer-events: none;
+
+    z-index: 50;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .screen {
+
+        padding: 20px;
+
+    }
+
+    .wish-container {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    h1 {
+
+        font-size: 70px;
+
+    }
+
+    h2 {
+
+        font-size: 38px;
+
+    }
+
+
+    /* THREE PHOTOS MOBILE */
+
+    .three-photo-gallery {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+        max-width: 330px;
+
+    }
+
+    .memory-card {
+
+        height: 350px;
+
+    }
+
+    .middle-photo {
+
+        transform: none;
+
+    }
+
+    .middle-photo:hover {
+
+        transform:
+            translateY(-12px)
+            scale(1.02);
+
+    }
+
+
+    /* GIFT MOBILE */
+
+    .gift-container {
+
+        transform:
+            scale(0.85);
+
+        margin-top: 20px;
+
+    }
+
+
+    .gift-message {
+
+        padding: 25px 15px;
+
+    }
+
+
+    .photo-description {
+
+        font-size: 16px;
+
+    }
+
+
+    .cake {
+
+        transform:
+            scale(0.8);
+
+    }
+
+
+    .letter {
+
+        padding:
+            30px 20px;
+
+    }
+
+
+    p {
+
+        font-size: 17px;
+
+    }
+
+}
